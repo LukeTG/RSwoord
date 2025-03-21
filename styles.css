@@ -1,0 +1,139 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#game-container {
+    width: 100vw; /* Camera (viewport) size */
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    border: 2px solid white;
+}
+
+#game-world {
+    width: 4000px; /* Larger than camera */
+    height: 3000px;
+    background-image: url('images/background.jpg'); /* Replace with your actual background */
+    background-size: cover;
+    position: absolute;
+}
+
+#sprite {
+    width: 5vw;
+    height: 6.4vw;
+    position: absolute;
+    background-size: contain;
+    background-position: center;
+    background-image: url('images/down2.png'); /* Set a default sprite */
+}
+
+/* Sprite animations remain the same */
+
+/* Up Animation */
+@keyframes walkUp {
+    0% {
+        background-image: url('images/up1.png');
+    }
+
+    33% {
+        background-image: url('images/up2.png');
+    }
+
+    66% {
+        background-image: url('images/up3.png');
+    }
+
+    100% {
+        background-image: url('images/up1.png');
+    }
+}
+
+/* Down Animation */
+@keyframes walkDown {
+    0% {
+        background-image: url('images/down1.png');
+    }
+
+    33% {
+        background-image: url('images/down2.png');
+    }
+
+    66% {
+        background-image: url('images/down3.png');
+    }
+
+    100% {
+        background-image: url('images/down1.png');
+    }
+}
+
+/* Left Animation */
+@keyframes walkLeft {
+    0% {
+        background-image: url('images/left1.png');
+    }
+
+    33% {
+        background-image: url('images/left2.png');
+    }
+
+    66% {
+        background-image: url('images/left3.png');
+    }
+
+    100% {
+        background-image: url('images/left1.png');
+    }
+}
+
+/* Right Animation */
+@keyframes walkRight {
+    0% {
+        background-image: url('images/right1.png');
+    }
+
+    33% {
+        background-image: url('images/right2.png');
+    }
+
+    66% {
+        background-image: url('images/right3.png');
+    }
+
+    100% {
+        background-image: url('images/right1.png');
+    }
+}
+
+/* Apply animation when the sprite moves */
+.moveUp {
+    animation: walkUp 1s steps(3) infinite;
+}
+
+.moveDown {
+    animation: walkDown 1s steps(3) infinite;
+}
+
+.moveLeft {
+    animation: walkLeft 1s steps(3) infinite;
+}
+
+.moveRight {
+    animation: walkRight 1s steps(3) infinite;
+}
+
+/* Idle State */
+.idle {
+    background-image: url('images/down1.png'); /* Default idle image */
+}
